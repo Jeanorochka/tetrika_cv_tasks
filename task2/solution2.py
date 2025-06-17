@@ -26,7 +26,7 @@ def fetch_titles(category: str) -> Iterator[str]:
             "list": "categorymembers",
             "cmtitle": f"Category:{category}",
             "cmlimit": "500",  # максимум за один запрос
-            "cmtype": "page",   # игнорируем подкатегории и файлы
+            "cmtype": "page",  # игнорируем подкатегории и файлы
             "format": "json",
         }
         if cmcontinue:
