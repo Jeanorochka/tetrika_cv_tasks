@@ -72,6 +72,29 @@ def main() -> None:
     write_csv(counts)
     print(f"готово. результаты сохранены в {OUTPUT_FILE}")
 
+def test_count_by_initial():
+    sample_titles = [
+        "Акула", "Аист", "Бобр", "Барсук", "Воробей", "Выхухоль", "",
+        "Гусь", "Горностай", "Тигр", "Ёжик", "Жук", "Жираф", "Зебра", "заяц",
+    ]
+    expected = {
+        "А": 2,
+        "Б": 2,
+        "В": 2,
+        "Г": 2,
+        "Ё": 2,
+        "Ж": 2,
+        "З": 2,
+        "Т": 1
+    }
+
+    result = count_by_initial(sample_titles)
+
+    for letter, count in expected.items():
+        assert result.get(letter, 0) == count, f"ошибка в подсчёте для буквы {letter}: ожидалось {count}, получено {result.get(letter, 0)}"
+    
+    print("Тест count_by_initial прошёл успешно.")
 
 if __name__ == "__main__":
+    test_count_by_initial()  
     main()
